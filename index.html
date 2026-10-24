@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Productivity Tracker</title>
+  <meta name="description" content="High-altitude daily tracker for marathon endurance, calisthenics hypertrophy, neuroplasticity deep work, and anabolic nutrition.">
+  <meta name="theme-color" content="#06b6d4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2306b6d4'><polygon points='12 2 2 22 22 22'/></svg>">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Desktop Sidebar -->
+    <aside class="desktop-sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>
+          <div class="brand-title">Productivity Tracker</div>
+          <div class="brand-subtitle">High-Performance OS</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a class="nav-item active" data-view="dashboard">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard & Daily
+        </a>
+        <a class="nav-item" data-view="productivity">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          Productivity & Focus
+        </a>
+        <a class="nav-item" data-view="fitness">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Fitness & Calisthenics
+        </a>
+        <a class="nav-item" data-view="diet">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Diet & Leucine Hub
+        </a>
+        <a class="nav-item" data-view="weekly">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Weekly 16-Wk Plan
+        </a>
+        <a class="nav-item" data-view="analytics">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Analytics & Papers
+        </a>
+        <a class="nav-item" data-view="sync">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Device Sync (Android/PC)
+        </a>
+      </nav>
+
+      <!-- Altitude Card -->
+      <div class="sidebar-altitude-card">
+        <div class="altitude-header">
+          <span>Environment</span>
+          <span>Himachal Pradesh</span>
+        </div>
+        <div class="altitude-location">Bir (1,580m) → Billing (2,400m)</div>
+        <div class="altitude-stat">HIF-1α • EPO • Capillary Density</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-wrapper">
+      
+      <!-- Top Navigation & Date Bar -->
+      <header class="top-header">
+        <div class="header-left">
+          <div class="header-date-picker">
+            <button class="date-nav-btn" id="prevDateBtn" title="Previous Day">◀</button>
+            <span class="current-date-text" id="currentDateText">Today</span>
+            <button class="date-nav-btn" id="nextDateBtn" title="Next Day">▶</button>
+          </div>
+          <span class="today-chip" id="todayBadge">TODAY</span>
+        </div>
+
+        <div class="header-right">
+          <button class="action-btn" id="pwaInstallBtn" style="display:none; padding:6px 12px; font-size:0.78rem; border-color:var(--cyan); color:var(--cyan);">
+            📲 Install App
+          </button>
+          
+          <button class="sync-status-btn" id="syncStatusBtn" onclick="switchView('sync')">
+            <span class="sync-dot"></span> Local Sync
+          </button>
+
+          <div class="header-metric-pill" title="Daily Protocol Adherence">
+            <span>Score:</span>
+            <span class="metric-circle" id="headerComplianceVal">0%</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dynamic Page Content -->
+      <main class="view-container" id="viewContent">
+        <!-- Rendered via app.js -->
+      </main>
+
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (Android Thumb-Friendly) -->
+    <nav class="mobile-bottom-nav">
+      <button class="mobile-nav-btn active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Today
+      </button>
+      <button class="mobile-nav-btn" data-view="productivity">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        Focus
+      </button>
+      <button class="mobile-nav-btn" data-view="fitness">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Workout
+      </button>
+      <button class="mobile-nav-btn" data-view="diet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Diet
+      </button>
+      <button class="mobile-nav-btn" data-view="sync">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Sync
+      </button>
+    </nav>
+
+    <!-- Global Interactive Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close">✕</button>
+        <div id="modalBody">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

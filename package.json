@@ -1,0 +1,24 @@
+{
+  "name": "bir-protocol-tracker",
+  "version": "1.0.0",
+  "description": "High-altitude daily tracker for marathon endurance, calisthenics hypertrophy, neuroplasticity deep work, and anabolic nutrition.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "fitness",
+    "productivity",
+    "huberman",
+    "wim-hof",
+    "goggins",
+    "marathon",
+    "calisthenics",
+    "leucine",
+    "tracker",
+    "pwa"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
